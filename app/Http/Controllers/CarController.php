@@ -15,7 +15,9 @@ class CarController extends Controller
      */
     public function index()
     {
-        //
+        $cars = DB::select('select * from cars');
+        //return $cars;
+        return view('cars.index', ['cars'=> $cars]);
     }
 
     /**
@@ -82,6 +84,7 @@ class CarController extends Controller
      */
     public function destroy(Car $car)
     {
-        //
+        DB::table('cars')->where('id', '=',$car['id'])->delete();
+        return redirect('/cars');
     }
 }
