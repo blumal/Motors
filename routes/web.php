@@ -19,3 +19,7 @@ Route::get('/', function () {
 });
 
 Route::get('/cars/{car}',[CarController::class,'show'])->name('cars.show');
+
+Route::get('/cars',[CarController::class,'index'])->name('cars.index');
+
+Route::delete('/cars/{car}',[CarController::class,'destroy'])->name('cars.destroy');
